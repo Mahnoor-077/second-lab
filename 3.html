@@ -1,0 +1,31 @@
+<html>
+<body>
+<script>
+function fetchProductIDs() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve([101, 102, 103]);
+        }, 1000);
+    });
+}
+function fetchProductDetails(productId) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ id: productId, name: "Product " + productId, price: 500 });
+        }, 1000);
+    });
+}
+fetchProductIDs()
+    .then(ids => {
+        console.log("Product IDs:", ids);
+        return fetchProductDetails(ids[0]);
+    })
+    .then(product => {
+        console.log("First product details:", product);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+</script>
+</body>
+</html>

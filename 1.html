@@ -1,0 +1,14 @@
+<html>
+<body>
+<script>
+function sayHello(name, callback){
+    setTimeout(()=>{
+        callback('Hello, {name}! Welcome!');
+    },3000);
+}
+sayHello ("Ayesha", function(message){
+    console.log(message);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<body>
+<script>
+const login = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ userId: 123 });
+        }, 1000);
+    });
+};
+const getProfile = (userId) => {
+    return new Promise((resolve, reject) => {
+        const hasError = false; // change to true to test error
+
+        setTimeout(() => {
+            if (hasError) {
+                reject("Failed to fetch profile");
+            } else {
+                resolve({ name: "Ahmad", status: "Active" });
+            }
+        }, 1000);
+    });
+};
+async function loadProfile() {
+    try {
+        const user = await login();
+        const profile = await getProfile(user.userId);
+        console.log("Profile:", profile);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+loadProfile();
+</script>
+</body>
+</html>

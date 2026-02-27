@@ -1,0 +1,19 @@
+<html>
+<body>
+<script>
+const downloadImage = new Promise((resolve, reject) => {
+    const isDownloaded = true; 
+    setTimeout(() => {
+        if (isDownloaded) {
+            resolve("https://example.com/image.jpg");
+        } else {
+            reject("Image download failed.");
+        }
+    }, 2000);
+});
+downloadImage
+    .then(url => console.log("Downloaded image URL:", url))
+    .catch(error => console.error("Error:", error));
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+<script>
+const buffer = new ArrayBuffer(16);
+const uint8View = new Uint8Array(buffer);
+for (let i = 0; i < uint8View.length; i++) {
+    uint8View[i] = Math.floor(Math.random() * 256);
+}
+
+console.log("Uint8Array Data:", uint8View);
+const decoder = new TextDecoder();
+const decodedText = decoder.decode(uint8View);
+
+console.log("Decoded Text:", decodedText);
+</script>
+
+</body>
+</html>
